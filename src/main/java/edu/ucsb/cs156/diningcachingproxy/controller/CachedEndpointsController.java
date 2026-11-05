@@ -22,9 +22,13 @@ public class CachedEndpointsController {
 
   @Autowired private CachedResponseRepository cachedResponseRepository;
 
-  public record CachedEndpointDTO(String requestPath, long hitCount) {
+   public record CachedEndpointDTO(String requestPath, long hitCount, long missCount) {
     public CachedEndpointDTO(CachedResponse cachedResponse) {
-      this(cachedResponse.getRequestPath(), cachedResponse.getHitCount());
+      this(
+        cachedResponse.getRequestPath(), 
+        cachedResponse.getHitCount(), 
+        cachedResponse.getMissCount() // 👈 Hi navin line add keli api response sathi
+      );
     }
   }
 
