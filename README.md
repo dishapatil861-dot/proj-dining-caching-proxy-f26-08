@@ -9,8 +9,9 @@ design and Q&A.
 
 | Deployment | URL |
 |-|-|
-| production | TBD |
-| qa | TBD |
+| production | https://dining-caching-proxy.dokku-00.cs.ucsb.edu |
+| qa | https://dining-caching-proxy-qa.dokku-00.cs.ucsb.edu |
+| info-doc| https://docs.google.com/document/d/1fi3drUUrfQYEKD24Pf3I-0lNVVuMGC2i57igx65QGto/edit?usp=sharing |
 
 # Versions
 * Java: 25
