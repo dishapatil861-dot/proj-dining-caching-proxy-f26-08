@@ -74,14 +74,21 @@ public class DiningProxyService {
       return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
     }
 
-    if (upstreamResponse.getStatusCode().is2xxSuccessful()) {
+      if (upstreamResponse.getStatusCode().is2xxSuccessful()) {
       cachedResponseRepository.save(
           CachedResponse.builder()
               .requestPath(requestPath)
               .responseStatus(upstreamResponse.getStatusCode().value())
               .responseBody(upstreamResponse.getBody())
               .hitCount(1)
+              .missCount(1) // 👈 Hi navin line add kara (first miss cache creation)
               .build());
+    }
+
+    return upstreamResponse;
+  } // Shevti ha closing bracket brackets match karnyasaathi paha
+}
+
     }
 
     return upstreamResponse;
